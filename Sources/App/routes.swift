@@ -1,5 +1,4 @@
 import Vapor
-
 /// Register your application's routes here.
 public func routes(_ router: Router) throws {
     // Basic "It works" example
@@ -11,7 +10,8 @@ public func routes(_ router: Router) throws {
     router.get("hello") { req in
         return "Hello, world!"
     }
-
+    
+    StashController(router: router)
     // Example of configuring a controller
     let todoController = TodoController()
     router.get("todos", use: todoController.index)

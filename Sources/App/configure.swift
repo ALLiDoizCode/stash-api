@@ -1,8 +1,13 @@
 import FluentSQLite
 import Vapor
-
+import MeowVapor
 /// Called before your application initializes.
+
+extension MongoKitten.Database: Service {}
+
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
+    let meow = try MeowProvider(uri: "mongodb://heroku_cn14tgzz:d1ldrmteqp2see3hcmg90pljpn@ds335668.mlab.com:35668/heroku_cn14tgzz")
+    try services.register(meow)
     // Register providers first
     try services.register(FluentSQLiteProvider())
 
@@ -10,7 +15,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     let router = EngineRouter.default()
     try routes(router)
     services.register(router, as: Router.self)
-
     // Register middleware
     var middlewares = MiddlewareConfig() // Create _empty_ middleware config
     // middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
