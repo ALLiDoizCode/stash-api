@@ -16,7 +16,7 @@ class StashController {
         
         self.router = router
         let route = router.grouped("achievements")
-        //route.post("save", use: save)
+        route.post("save", use: save)
         route.get("fetch",use: fetch)
     }
     
