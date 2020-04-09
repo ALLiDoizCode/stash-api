@@ -6,7 +6,7 @@ import MeowVapor
 extension MongoKitten.Database: Service {}
 
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
-    let meow = try MeowProvider(uri: "mongodb://heroku_cn14tgzz:d1ldrmteqp2see3hcmg90pljpn@ds335668.mlab.com:35668/heroku_cn14tgzz")
+    let meow = try MeowProvider(uri: "mongodb://heroku_7tpxf5gh:bna5omqd0bbd3kvuukq36umc87@ds133557.mlab.com:33557/heroku_7tpxf5gh")
     try services.register(meow)
     // Register providers first
     try services.register(FluentSQLiteProvider())
