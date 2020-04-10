@@ -11,6 +11,8 @@ import MeowVapor
 
 final class Achievements:Content,Model {
     var _id:String
+    var success:Bool?
+    var status:Int?
     var overview:OverView
     var achievements:[Achievement]
 }

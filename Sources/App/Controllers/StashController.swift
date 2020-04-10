@@ -29,6 +29,8 @@ class StashController {
                     let identifier = "204"
                     throw APIErrors(identifier: identifier, reason: reason, status: .noContent)
                 }
+                object.success = true
+                object.status = 200
                 return object
             })
         })
